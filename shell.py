@@ -43,7 +43,7 @@ s = socket.socket()
 s.bind((host,port))
 s.listen(1) #the number is how many connections it will take before refusing anymore
 
-print("\nstarted listening...")
+print(f"\nstarted listening on port {port}...")
 
 client_socket, client_addr = s.accept()
 
