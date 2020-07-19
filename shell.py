@@ -37,7 +37,7 @@ print("\n\n\nThe reverse shell tool (severside)\n\n")
 print("If you want to send a message to the person on the other end type:\nPowerShell -Command \"Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('Hello World')\"")
 #"0.0.0.0" is any ipv4 address the computer is listed as in any network
 host = "0.0.0.0"
-port = 1337
+port = 5006
 #buffer of 1024kb
 buffer = 1024
 
