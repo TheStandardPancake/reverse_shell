@@ -65,10 +65,12 @@ while True:
         break
     #A command to retrieve any residual buffer overflow or none-listed info returning commands
     elif command.lower() == "debuff":
+        client_socket.settimeout(3)
         response = client_socket.recv(buffer).decode()
         print(response)
     #retrieve response from commands that output text
     elif command.split()[0] in Data_ret_comm:
+        client_socket.settimeout(None)
         response = client_socket.recv(buffer).decode()
         print(response)
 client_socket.close()
