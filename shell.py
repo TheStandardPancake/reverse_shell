@@ -39,7 +39,7 @@ print("If you want to send a message to the person on the other end type:\nPower
 host = "0.0.0.0"
 port = 5006
 #buffer of 1024kb
-buffer = 4096
+buffer = 64000
 
 s = socket.socket()
 s.bind((host,port))
