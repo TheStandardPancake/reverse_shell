@@ -46,11 +46,11 @@ s = socket.socket()
 s.bind((host,port))
 s.listen(1) #the number is how many connections it will take before refusing anymore
 
-print(f"\nstarted listening on port {port}...\n\n")
+print(f"\nstarted listening on port {port}...")
 
 client_socket, client_addr = s.accept()
 
-print(f"CONNECTION made with {str(client_addr)}:")
+print(f"\n\nCONNECTION made with {str(client_addr)}:")
 
 #A list of commands that return information so that I can fix the problem of not being able to use commands that don't return information.
 Data_ret_comm = ["dir", "ls", "ifconfig", "ipconfig", "cat", "echo", "find", "finger", "grep", "groups", "head", "history", "less", "man", "move", "ping", "ps", "pwd", "tail", "uname", "w", "netstat", "route", "net", "tasklist", "getmac","netsh", "help"]
