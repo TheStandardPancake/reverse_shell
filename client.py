@@ -1,9 +1,8 @@
 import socket
 import subprocess
-import os
 sever = "192.168.20.17"
 port = 5006
-buffer = 1024
+buffer = 4096
 s = socket.socket()
 s.connect((sever,port))
 while True:
